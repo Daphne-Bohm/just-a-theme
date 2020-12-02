@@ -1,0 +1,952 @@
+/*
+    Theme Name: just-a-theme
+    Author: Daphne
+    Version: 1.0
+*/
+
+/*****************************************************************
+                            Global styling
+*/
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --gold: #D1A068;
+    --grey: #888888;
+    --almost-black: #3A3A3A;
+    --almost-white: #F8F9FB;
+    --light-grey: #D8D8D8;
+    --white: #ffffff;
+    --black: #000000;
+    --bar-width: 40px;
+    --bar-height: 5px;
+    --bar-spacing: 12px;
+}  
+
+body{
+    background-color: var(--almost-white);
+}
+
+li{
+    list-style-type: none;
+}
+
+a{ 
+    text-decoration: none;
+    color: var(--white);
+}
+
+.make-uppercase{
+    text-transform: uppercase;
+}
+
+.btn{
+    border: 2px solid var(--gold);
+    padding: 10px 25px;
+    margin-top: -12px;
+    transition: all ease 0.5s;
+    font-weight: 700;
+    background-color: var(--grey);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+h2{
+    font-weight: normal;
+    font-size: 24px;
+}
+
+h3{
+    color: var(--white);
+    font-weight: normal;
+    font-size: 16px;
+}
+
+p{
+    font-size: 14px;
+}
+
+
+/*****************************************************************
+            1. HEADER
+
+            1.1 header
+            1.2. logo
+            1.3. navbar
+            1.4. hamburger menu
+            1.5. media
+            1.6. JS class
+
+*/
+
+/*1.1. header*/
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: var(--grey);
+}
+
+/*1.2. logo*/
+.logo{
+    font-size: 24px;
+    font-family: 'Lato', sans-serif;
+    color: var(--white);
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+/*1.3. navbar*/
+.nav-links{
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-link{
+    margin: 0 10px;
+}
+
+.nav-link a:hover{
+    border-bottom: 2px solid var(--gold);
+}
+
+/*1.4. hamburger menu*/
+.hamburger-menu{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger-menu,
+.hamburger-menu:after,
+.hamburger-menu:before {
+    width: var(--bar-width);
+	height: var(--bar-height);
+}
+
+.hamburger-menu {
+	position: relative;
+	transform: translateY(var(--bar-spacing));
+	background: rgba(255, 255, 255, 1);
+	transition: all 0ms 300ms;
+}
+
+.hamburger-menu.animate{
+    background: rgba(255, 255, 255, 0); 
+}
+
+.hamburger-menu:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: var(--bar-spacing);
+	background: rgba(255, 255, 255, 1);
+	transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: var(--bar-spacing);
+	background: rgba(255, 255, 255, 1);
+	transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:after {
+	top: 0;
+	transform: rotate(45deg);
+	transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
+}
+
+.hamburger-menu.animate:before {
+	bottom: 0;
+	transform: rotate(-45deg);
+	transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
+}
+
+/*1.5. media*/
+@media (max-width: 991.98px) { 
+    .nav-links{
+        display: none;
+        position: absolute;
+        top: 122px;
+        left: 0px;
+        background-color: var(--grey);
+        width: 100%;
+        padding: 0px 20px;
+    }
+
+    .nav-link{
+        margin: 45px 0px;
+    }
+
+    .book-now{
+        display: none;
+    }
+
+    .hamburger-menu{
+        display: block;
+        margin-top: -8px;
+    }
+}
+
+
+/*1.6. JS class*/
+
+.display-menu{
+    display: block;
+}
+
+
+/*****************************************************************
+            2. Hero
+
+            2.1 hero
+            2.2. hero-title
+            2.3. hero-btn
+            2.4. media
+
+*/
+
+/*2.1. hero*/
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    background-color: var(--grey);
+    margin-top: -50px;
+}
+
+/*2.2. hero-title*/
+.hero-title{
+    margin-bottom: 50px;
+    color: var(--white);
+    font-size: 60px;
+    width: 60%;
+    text-align: center;
+}
+
+/*2.3. hero-btn*/
+.hero-btn{
+    background-color: var(--almost-black);
+}
+
+
+/*2.4. Media*/
+@media (max-width: 991.98px) { 
+    .hero-title{
+        font-size: 50px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title{
+        font-size: 30px;
+        width: 90%;
+    }
+}
+
+/*****************************************************************
+            3. About
+
+            3.1. about-container
+            3.2. about: about-hr-top / about-title / about-text
+            3.3. about-grey-box
+            3.4. about-autograph
+            4.4. media
+
+*/
+
+/*3.1. about-container*/
+.about-container{
+    width: 85%;
+    height: 70vh;
+    position: relative;
+}
+
+/*3.2. about*/
+.about{
+    background-color: var(--almost-black);
+    height: 75%;
+    width: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 100px;
+    position: relative;
+    margin-top: -100px;
+}
+
+.about-hr-top{
+    width: 70px;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    border-color: var(--light-grey);
+}
+
+.about-title{
+    width: 65%;
+    font-size: 30px;
+}
+
+.about-title span{
+    color: var(--gold);
+}
+
+.about-text{
+    width: 65%;
+    color: var(--light-grey);
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+}
+
+/*3.3. about-grey-box*/
+.about-grey-box{
+    width: 25%;
+    height: 80%;
+    background-color: var(--light-grey);
+    position: absolute;
+    top: 60px;
+    left: 60%;
+}
+
+/*3.4. about-autograph*/
+.about-autograph{
+    position: absolute;
+    top: 380px;
+    width: 50%;
+    left: 45%;
+}
+
+/*4.4. Media*/
+@media (max-width: 991.98px) { 
+    .about-container{
+        width: 95%;
+    }
+    .about-title{
+        font-size: 24px;
+    }
+    .about-hr-top{
+        top: 27%;
+    }
+}
+
+@media (max-width: 768px) { 
+    .about-container{
+        width: 100%;
+        height: 50vh;
+        position: relative;
+    }
+    .about{
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        padding: 0px 50px;
+    }
+    .about-hr-top{
+        display: none;
+    }
+    .about-title{
+        width: 100%;
+    }
+    .about-text{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .about-grey-box{
+        display: none;
+    }
+    .about-autograph{
+        display: none;
+    }
+}
+
+/*****************************************************************
+            4. Services
+
+            4.1. services-container
+            4.2. services
+            4.3. service
+            4.4. media
+
+*/
+
+/* 4.1. services container */
+.services-container{
+    width: 80%;
+    margin: 100px auto;
+}
+
+/* 4.2. services */
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 50px;
+    margin-top: 50px;
+}
+
+/* 4.3. service */
+.service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--light-grey);
+    padding: 50px;
+}
+
+.service h5{
+    margin: 20px 0;
+}
+
+/* 4.4. media */
+@media (max-width: 768px){
+    .services-container{
+        margin: 50px auto;
+    }
+    .services{
+        margin-top: 20px;
+        grid-gap: 20px;
+    }
+}
+
+
+/*****************************************************************
+            5. Portfolio
+
+            5.1. portfolio
+            5.2. portfolio-background
+            5.3. portfolio-title
+            5.4. media
+
+*/
+
+/* 5.1. portfolio */
+.portfolio{
+    width: 80%;
+    padding: 80px 0 100px 0;
+    margin: 50px 0px 150px 50px;
+    float: right;
+    position: relative;
+}
+
+/* 5.2. portfolio-background */
+.portfolio-background{
+    width: 90%;
+    background-color: var(--almost-black);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+/* 5.3. portfolio-title */
+.portfolio-title{
+    margin: 0 0 80px 20%;
+    color: var(--white);
+    font-weight: bold;
+}
+
+/* 5.4. media */
+@media (max-width: 768px){
+    .portfolio{
+        width: 100%;
+        padding: 50px 0 80px 0;
+        margin: 0px 0px 50px 50px;
+        clear: both;
+        background-color: var(--almost-black);
+    }
+    .portfolio-background{
+        display: none;
+    }
+    .portfolio-title{
+        margin-bottom: 50px;
+        color: white;
+        margin: 0 0 50px 30px;
+    }
+}
+
+/*****************************************************************
+            6. Prices
+
+            6.1. prices-container
+            6.2. prices
+            6.3. price
+            6.4. price-info
+            6.5. price-details
+            6.6. other-prices
+            6.7. media
+
+*/
+
+/* 6.1. prices-container*/
+.prices-container{
+    clear: both;
+    background-color: var(--light-grey);
+    padding: 80px;
+}
+
+/* 6.2. prices */
+.prices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 100px;
+    width: 80%;
+    margin: 50px auto;
+}
+
+/* 6.3. price */
+.price{
+    background-color: var(--almost-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/*6.4. price-info */
+.price-info{
+    background-color: var(--almost-black);
+    width: 35%;
+    padding: 20px;
+}
+
+.price-info-title{
+    margin: 10px;
+    color: var(--white);
+}
+
+.price-book-now{
+    border: none;
+    color: var(--gold);
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 6.5. price-details */
+.price-details{
+    background-color: var(--white);
+    width: 65%;
+    height: 100%;
+}
+
+.price-details-item{
+    list-style-image: url('images/list.png');
+    font-size: 14px;
+    margin: 50px;
+}
+
+/*6.6. other-prices-btn*/
+.other-prices-btn{
+    background-color: var(--almost-black);
+    color: var(--white);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+/*6.7. media*/
+@media (max-width: 768px){
+    .prices-container{
+        padding: 50px;
+    }
+    .prices{
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-gap: 50px;
+        width: 100%;
+    }
+    .price{
+        flex-direction: column;
+    }
+    .price-info{
+        width: 100%;
+    }
+    .price-details{
+        width: 100%;
+    }
+}
+
+/*****************************************************************
+            7. Team
+
+            7.1. team
+            7.2. team-title
+            7.3. team-slider-container
+            7.4. media
+
+*/
+
+/* 7.1. team */
+.team{
+    width: 80%;
+    padding: 80px 0 100px 0;
+    margin: 150px 50px 150px 0px;
+    float: left;
+    position: relative;
+    background-color: var(--almost-black);
+}
+
+/* 7.2. team-title */
+.team-title{
+    margin: 0 0px 50px 50px;
+    color: var(--white);
+    font-weight: bold;
+}
+
+/* 7.3. team-slider-container*/
+.team-slider-container{
+    width: 80%;
+}
+
+/* 7.4. media */
+@media (max-width: 768px){
+    .team{
+        width: 100%;
+        padding: 50px 0 50px 0;
+        margin: 50px 50px 50px 0px;
+        clear: both;
+    }
+    .team-title{
+        margin: 0 0px 50px 30px;
+    }
+    .team-slider-container{
+        width: 100%;
+    }
+}
+
+/*****************************************************************
+            8. Customers
+
+            8.1. customers
+            
+*/
+
+.customers{
+    width: 80%;
+    margin: auto;
+}
+
+/*****************************************************************
+            8. Blog
+
+            8.1. blogs-homepage-container
+            8.2. blogs-homepage-title
+            8.3. blogs-homepage
+            8.4. blog-homepage
+            8.4. media
+            
+*/
+
+/* 8.1. blogs-homepage-container */
+.blogs-homepage-container{
+    margin: 150px auto;
+}
+
+/* 8.2. blogs-homepage-title */
+.blogs-homepage-title{
+    margin: 20px 0 20px 11%;
+}
+
+/* 8.2. blogs-homepage */
+.blogs-homepage{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 8.4. blog-homepage */
+.blog-homepage{
+    margin: 20px;
+}
+
+.blog-homepage-thumbnail{
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+.blog-homepage-title{
+    font-size: 16px;
+    margin: 10px 0;
+    width: 80%;
+}
+
+.blog-homepage a{
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* 8.4. media */
+@media (max-width: 768px){
+    .blogs-homepage-container{
+        margin: 50px auto;
+    }
+    .blog-homepage-title{
+        width: 100%;
+    }
+}
+
+/*****************************************************************
+            8. Footer
+
+            8.1. footer
+            8.2. footer-info
+                8.2.1 contact-container
+                8.2.2 company-container
+                8.2.3 project-container
+            8.3. footer hr
+            8.4. copywrite
+            8.5. media
+            
+*/
+
+/*8.1. footer*/
+footer{
+    background-color: var(--almost-black);
+    padding: 80px 20px 50px 20px;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+}
+
+/*8.2. footer-info */
+.footer-info{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+/* 8.2.1 contact-container */
+.contact-container{
+    margin: 0 10px;
+    line-height: 1.6;
+}
+
+.contact{
+    font-size: 14px;
+}
+
+.contact-title{
+    margin-bottom: 20px;
+}
+
+/* 8.2.2 company-container*/
+.company-container{
+    margin: 0 10px;
+}
+
+.company-title{
+    margin-bottom: 20px;
+}
+
+.company-item{
+    margin: 25px 0;
+    font-size: 14px;
+}
+
+/* 8.2.3 project-container*/
+.project-container{
+    margin: 0 10px;
+}
+
+.project-title{
+    margin-bottom: 60px;
+}
+
+.project-email{
+    margin-top: 140px;
+}
+
+.project-email{
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-input{
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.project-btn{
+    color: var(--gold);
+    background-color: var(--almost-black);
+}
+
+/* 8.3. footer hr */
+footer hr{
+    border-color: grey;
+}
+
+/* 8.4. copywrite */
+.copywrite-text{
+    margin-top: 20px;
+    color: var(--grey);
+}
+
+.logo-footer{
+    margin-top: 25px;
+}
+
+/* 8.5. media*/
+@media (max-width: 768px){
+    footer{
+        padding: 50px 20px 50px 20px;
+    }
+    .footer-info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .contact-container{
+        margin: 0 0 20px 10px;
+    }
+    .company-container{
+        margin: 0 0 20px 10px;
+    }
+    .project-container{
+        margin: 0 0 20px 10px;
+    }
+    .project-title{
+        margin-bottom: 20px;
+    }
+    .project-email{
+        margin-top: 100px;
+    }
+}
+
+/*****************************************************************
+            9. singe.php
+
+            9.1. blog-post-container
+            9.2. blog-post-info
+            
+*/
+
+/* 9.1. blog-post-container */
+.blog-post-container{
+    margin: 50px auto 100px auto;
+    width: 80%;
+}
+
+/* 9.2. blog-post-container */
+.blog-post-info{
+    width: 100%;
+    background-color: var(--grey);
+    padding: 20px;
+}
+
+.blog-post-title{
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.blog-post-category a:hover{
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/*****************************************************************
+            10. archive.php & index.php (/blogs)
+
+            10.1. blog-container
+            10.2. blog-title
+            10.3. blog-post
+            10.4. media
+            
+*/
+
+/* 10.1. blog-container */
+.blog-container{
+    width: 66%;
+    margin: 50px auto 100px auto;
+}
+
+/* 10.2. blog-title */
+.blog-title{
+    background-color: var(--grey);
+    padding: 20px;
+    color: var(--white);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* 10.3. blog-post */
+.blog-post{
+    margin-bottom: 50px;
+}
+
+.blog-post-title{
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.blog-post-content{
+    display: flex;
+}
+
+.blog-post-text{
+    margin: 20px;
+}
+
+.blog-post-text p{
+    font-size: 16px;
+}
+
+.blog-read-more-btn{
+    background-color: var(--white);
+    margin-top: 20px;
+}
+
+.blog-read-more-btn a{
+    color: var(--black);
+}
+
+/* 10.4. media */
+@media (max-width: 991.98px){
+    .blog-container{
+        margin: 50px auto 100px auto;
+    }
+    .blog-post-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .blog-post-text{
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 768px){
+    .blog-container{
+        width: 80%;
+        margin: 50px auto 100px auto;
+    }
+}
